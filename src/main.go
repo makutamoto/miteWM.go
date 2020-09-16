@@ -165,7 +165,7 @@ func main() {
 					xclient._type = C.ClientMessage
 					xclient.message_type = C.XInternAtom(display, C.CString("WM_PROTOCOLS"), C.True)
 					xclient.format = 32
-					l := (*[]C.ulong)(unsafe.Pointer(&xclient.data))
+					l := (*[5]C.ulong)(unsafe.Pointer(&xclient.data))
 					(*l)[0] = C.XInternAtom(display, C.CString("WM_DELETE_WINDOW"), C.True)
 					(*l)[1] = C.CurrentTime
 					xclient.window = client.window[CLIENT_APP]
@@ -258,11 +258,11 @@ func main() {
 				)
 			} else {
 				// 掴んでいる位置によって、x及びy方向へのresizeが適用されないこともある。
-				if (info.eventProperty>>RESIZE_ANGLE_START)&1 == 0 ||
+				if (info.eventProperty>>RESIZE_ANGLE_START)&1 == 0 &&
 					(info.eventProperty>>RESIZE_ANGLE_END)&1 == 0 {
 					xDiff = 0
 				}
-				if (info.eventProperty>>RESIZE_ANGLE_TOP)&1 == 0 ||
+				if (info.eventProperty>>RESIZE_ANGLE_TOP)&1 == 0 &&
 					(info.eventProperty>>RESIZE_ANGLE_BOTTOM)&1 == 0 {
 					yDiff = 0
 				}

@@ -45,15 +45,15 @@ func (client *Client) resizeWindow(
 
 	posX := x
 	if xMove {
-		x -= xDiff
+		posX -= xDiff
 	} else {
-		x += xDiff
+		posX += 0
 	}
 	posY := y
 	if yMove {
 		posY -= yDiff
 	} else {
-		posY += yDiff
+		posY += 0
 	}
 	C.XMoveWindow(
 		display,
