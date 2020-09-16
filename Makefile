@@ -3,7 +3,7 @@
 XINITRC=~/.xinitrc
 
 all:
-	$(CC) ${CURDIR}/src/mitewm.c  -lcairo -lX11 -ljson-c -o ${CURDIR}/mitewm
+	go build -o ${CURDIR}/mitewm ./src
 	
 set_xinitrc:
 	echo "xcompmgr & ${CURDIR}/mitewm ${CURDIR}/mitewm_config.json & xterm" > $(XINITRC)

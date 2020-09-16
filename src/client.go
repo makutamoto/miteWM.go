@@ -1,9 +1,5 @@
 package main
 
-// #cgo LDFLAGS: -lX11 -lcairo
-// #include <X11/Xlib.h>
-// #include <X11/cursorfont.h>
-// #include <X11/Xutil.h>
 // #include <cairo/cairo-xlib.h>
 import "C"
 

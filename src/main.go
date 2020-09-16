@@ -8,10 +8,9 @@ import (
 	"unsafe"
 )
 
-// #cgo LDFLAGS: -lX11
+// #cgo LDFLAGS: -lX11 -lcairo
 // #include <X11/Xlib.h>
 // #include <X11/cursorfont.h>
-// #include <X11/Xutil.h>
 import "C"
 
 type GlobalInfo struct {
